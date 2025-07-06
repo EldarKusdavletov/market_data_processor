@@ -1,9 +1,12 @@
 #include <unordered_set>
 #include <numeric>
+#include <ranges>
 
 #include "../include/MarketDataProcessor.hpp"
 
 void MarketDataProcessor::process_event(const MarketEvent &event) {
+    std::unique_lock<std::shared_mutex> lock(mutex_);
+
     events_.emplace_back(event);
 
     switch (event.type) {
@@ -21,9 +24,9 @@ void MarketDataProcessor::process_event(const MarketEvent &event) {
 }
 
 double MarketDataProcessor::get_latest_price(std::string_view symbol) const {
-    for (auto it = events_.rbegin(); it != events_.rend(); ++it) {
-        if (it->symbol == symbol) {
-            return it->price;
+    for (const auto & event : std::ranges::reverse_view(events_)) {
+        if (event.symbol == symbol) {
+            return event.price;
         }
     }
     return 0.0;

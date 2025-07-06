@@ -1,12 +1,15 @@
 #pragma once
 
-#include "MarketEvent.hpp"
 #include <vector>
+#include <shared_mutex>
+
+#include "MarketEvent.hpp"
 
 class MarketDataProcessor {
 private:
     std::vector<MarketEvent> events_;
     int processed_count_ = 0;
+    mutable std::shared_mutex mutex_;
 
 public:
     MarketDataProcessor() = default;
