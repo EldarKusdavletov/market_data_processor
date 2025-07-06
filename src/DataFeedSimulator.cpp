@@ -3,7 +3,7 @@
 #include <chrono>
 
 DataFeedSimulator::DataFeedSimulator()
-    : symbols_{"AAPL", "GOOGL", "MSFT", "TSLA"}, gen_(std::chrono::steady_clock::now().time_since_epoch().count()),
+    : symbols_{"AAPL", "GOOGL", "MSFT", "TSLA"}, gen_(std::random_device{}()),
       price_dist_{100.0, 300.0}, volume_dist_{100, 10000}, symbol_dist_{0, static_cast<int>(symbols_.size() - 1)},
       type_dist_{0, static_cast<int>(event_type_count - 1)} {
 }
@@ -13,10 +13,10 @@ MarketEvent DataFeedSimulator::generate_event() {
         throw std::runtime_error("No symbols available for event generation");
     }
 
-    const std::string &symbol = symbols_[symbol_dist_(gen_)];
+    const std::string &symbol = symbols_[static_cast<unsigned long>(symbol_dist_(gen_))];
     const double price = price_dist_(gen_);
     const int volume = volume_dist_(gen_);
-    const EventType type = static_cast<EventType>(type_dist_(gen_));
+    const auto type = static_cast<EventType>(type_dist_(gen_));
 
     return MarketEvent{symbol, price, volume, type};
 }

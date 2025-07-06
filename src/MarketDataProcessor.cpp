@@ -26,7 +26,7 @@ double MarketDataProcessor::get_latest_price(std::string_view symbol) const {
             return it->price;
         }
     }
-    return 0.f;
+    return 0.0;
 }
 
 int MarketDataProcessor::get_processed_count() const noexcept {
