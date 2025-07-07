@@ -28,10 +28,10 @@ add_compile_options(
 add_library(market_data_lib STATIC)
 
 target_sources(market_data_lib PRIVATE
-        src/DataFeedSimulator.cpp
-        src/EventType.cpp
-        src/MarketDataProcessor.cpp
-        src/MarketEvent.cpp
+        src/data_sources/DataFeedSimulator.cpp
+        src/core/EventType.cpp
+        src/core/MarketDataProcessor.cpp
+        src/core/MarketEvent.cpp
 )
 
 target_include_directories(market_data_lib PUBLIC include)

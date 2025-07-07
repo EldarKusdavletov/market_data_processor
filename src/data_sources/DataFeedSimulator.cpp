@@ -1,6 +1,6 @@
 #include <chrono>
 
-#include "DataFeedSimulator.hpp"
+#include "data_sources/DataFeedSimulator.hpp"
 
 DataFeedSimulator::DataFeedSimulator()
     : symbols_{"AAPL", "GOOGL", "MSFT", "TSLA"}, gen_(std::random_device{}()),

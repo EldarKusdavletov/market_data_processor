@@ -1,4 +1,4 @@
-#include "EventType.hpp"
+#include "core/EventType.hpp"
 
 std::ostream &operator<<(std::ostream &os, EventType type) {
     switch (type) {

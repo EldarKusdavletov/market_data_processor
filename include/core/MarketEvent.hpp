@@ -1,6 +1,6 @@
 #pragma once
 
-#include "EventType.hpp"
+#include "core/EventType.hpp"
 
 struct MarketEvent {
     std::string symbol;

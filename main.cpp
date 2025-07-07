@@ -1,7 +1,7 @@
 #include <thread>
 
-#include "include/MarketDataProcessor.hpp"
-#include "include/DataFeedSimulator.hpp"
+#include "core/MarketDataProcessor.hpp"
+#include "data_sources/DataFeedSimulator.hpp"
 
 int main() {
     std::cout << "=== Simple Market Data Processor ===" << std::endl;
