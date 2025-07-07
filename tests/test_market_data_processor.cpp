@@ -2,7 +2,7 @@
 
 #include <gtest/gtest.h>
 
-#include "../include/MarketDataProcessor.hpp"
+#include "MarketDataProcessor.hpp"
 
 class MarketDataProcessorTest : public ::testing::Test {
 protected:

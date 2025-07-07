@@ -1,4 +1,4 @@
-#include "../include/MarketEvent.hpp"
+#include "MarketEvent.hpp"
 
 bool MarketEvent::operator==(const MarketEvent &other) const noexcept {
     return symbol == other.symbol &&

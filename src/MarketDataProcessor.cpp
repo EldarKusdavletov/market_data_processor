@@ -2,7 +2,7 @@
 #include <numeric>
 #include <ranges>
 
-#include "../include/MarketDataProcessor.hpp"
+#include "MarketDataProcessor.hpp"
 
 void MarketDataProcessor::process_event(const MarketEvent &event) {
     std::unique_lock<std::shared_mutex> lock(mutex_);

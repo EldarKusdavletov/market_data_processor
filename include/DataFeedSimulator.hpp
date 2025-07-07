@@ -1,7 +1,8 @@
 #pragma once
 
-#include "MarketEvent.hpp"
 #include <random>
+
+#include "MarketEvent.hpp"
 
 class DataFeedSimulator {
 private:
